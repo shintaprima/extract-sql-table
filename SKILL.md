@@ -22,7 +22,7 @@ This skill extracts all raw database tables referenced across `FROM` and `JOIN` 
    - Scan for table references in `FROM` and `JOIN` (e.g., `LEFT JOIN`, `RIGHT JOIN`, `INNER JOIN`, `FULL JOIN`, `CROSS JOIN`, `JOIN`) statements.
    - Include tables in subqueries, CTEs, and `DELETE FROM` statements.
    - **Exclude temporary tables**:
-     - Any tables with schema `lp_data_temp.` or `lp_dev.lp_data_temp.`
+     - Any tables with schema consist of name `temp.` or `dev.` 
      - Any tables created within the query as temporary tables (e.g. `CREATE TABLE lp_data_temp....`, `CREATE TEMP TABLE ...`)
    - **Exclude SQL functions that use the `FROM` keyword**:
      - `SUBSTRING(... FROM ...)`
@@ -32,7 +32,7 @@ This skill extracts all raw database tables referenced across `FROM` and `JOIN` 
 
 3. **Output Format**:
    - Present the tables in clean **bullet point format** (`- `).
-   - Group the tables by schema name (e.g., `genesis`, `lp_dwh`, `lion_cargo`, etc.) for clear readability.
+   - Group the tables by schema name for clear readability.
    - If there are external data sources (such as Redshift `COPY ... FROM 's3://...'`), mention them separately under a note.
 
 ## Automation Script
